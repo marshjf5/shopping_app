@@ -1,4 +1,5 @@
 class CommoditiesController < ApplicationController
+<<<<<<< HEAD
   def add_to_cart
     commodity = Commodity.find(params[:id])
     @cart=add_commodity
@@ -15,3 +16,9 @@ class CommoditiesController < ApplicationController
     end
   end
 end
+=======
+  def new
+    @commodity = Commodity.new
+  end
+end
+>>>>>>> 72546e6668e5bb2da5312d5dec6a75d4b9e6cb50
