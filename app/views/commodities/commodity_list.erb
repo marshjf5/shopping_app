@@ -1,0 +1,10 @@
+<ul class>
+  <li>所有宝贝</li>
+</ul>
+<div class>
+  <%  @commodities.each do|commodity| %>
+  <tr>
+    <td><%= commodity.supplier.name %></td>
+    <td><%= link_to '放入购物车',{:action =>"add_to_cart",:id => commodity} %></td>
+  </tr>
+</div>
