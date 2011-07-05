@@ -18,6 +18,7 @@
       <td><%= commodity.name %></td>
       <td><%= commodity.price %></td>
       <td><%= commodity.amount %></td>
+   
       <td><%= commodity.supplier.name %></td>
       <td><%= commodity.supplier.postage %></td>
       <td><%= link_to '查看商品', commodity %></td>
@@ -27,6 +28,7 @@
       <td><%= link_to '放入购物车',{:action =>"add_to_cart",:id => commodity} %></td>
     </tr>
   <% end %>
+
 </table>
 <br />
 <%= link_to '添加新商品', new_commodity_path %>

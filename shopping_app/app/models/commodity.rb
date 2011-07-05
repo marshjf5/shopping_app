@@ -1,13 +1,12 @@
 class Commodity < ActiveRecord::Base
-  has_many :orders, :through => :purchases
+  has_many :orders
   belongs_to :supplier
-  has_many :purchases
-  attr_reader :quantity
+
 
   
-#  def initialize(quantity)
-#    @quantity = quantity
-#  end
+  def initialize(quantity)
+    @quantity = quantity
+  end
 #  def quantity
 #    @quantity = 1
 #  end
@@ -17,7 +16,7 @@ class Commodity < ActiveRecord::Base
 #  end
 #
 #  #传入单种商品的总价 价格*数量
-#  def total_price
-#    @commodity.price * @quantity
-#  end
+  def total_price
+    @commodity.price * @quantity
+  end
 end

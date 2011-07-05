@@ -5,10 +5,6 @@ class PackagesController < ApplicationController
  def new
    @package = Package.new
  end
- def commodities
-   @package = Package.find_by_id(params[:id])
-   @commodities = @package.commodities
- end
 end
 
 

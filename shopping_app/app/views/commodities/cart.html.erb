@@ -9,6 +9,7 @@
   <tr>
     <th>商品名</th>
     <th>商品价格</th>
+    <th>商品库存</th>
     <th>供应商</th>
     <th>购买数量</th>
     <th></th>
@@ -22,9 +23,12 @@
       <tr>
         <td><%= commodity.name %></td>
         <td><%= commodity.price %></td>
-        <td><%= commodity.supplier.name %></td>
-        <td><input value="1"id="num<%= commodity.id %>" size="1" /></td>
-        <td><%= link_to '购买',"/suppliers/#{commodity.id}/package" %></td>
+        <td><%= commodity.amount %></td>
+        <td><%= commodity.supplier.name %></td>       
+        <td><input value=""id="num<%= commodity.id %>" size="1" /></td>
+        <td><input type="hidden"  id="amount<%=commodity.id  %>" value="<%=commodity.amount %>" /></td>
+        <td><%= link_to '购买',"javascript:void(0)",
+            :onclick => "javascript:get_package('#{commodity.id}');" %></td>
       </tr>
     <% end %>
   <% end %>
