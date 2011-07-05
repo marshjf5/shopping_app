@@ -1,4 +1,4 @@
 class Package < ActiveRecord::Base
-  has_many :suppliers
-  belongs_to :order
+  has_one :supplier
+  has_many :orders
 end

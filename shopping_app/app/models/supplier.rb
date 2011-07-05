@@ -1,4 +1,4 @@
 class Supplier < ActiveRecord::Base
-  belongs_to :commodity
+  has_one :commodity
   belongs_to :package
 end

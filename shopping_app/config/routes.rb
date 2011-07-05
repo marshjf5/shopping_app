@@ -1,4 +1,21 @@
 ShoppingApp::Application.routes.draw do
+
+  resources :commodities do
+    collection do
+      get "add_to_cart","cart"
+      post "empty_cart"
+    end
+    member do
+      get "order"
+      get "dest"
+    end
+  end
+  resources :suppliers do
+    member do
+      get "package"
+    end
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

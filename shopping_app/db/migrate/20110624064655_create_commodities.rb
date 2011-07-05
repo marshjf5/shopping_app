@@ -5,6 +5,7 @@ class CreateCommodities < ActiveRecord::Migration
       t.float :price
       t.integer :amount
       t.integer :supplier_id
+      t.integer :quantity
 
       t.timestamps
     end
