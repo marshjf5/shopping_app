@@ -1,0 +1,37 @@
+<h1>购 物 车</h1>
+<table>
+  <tr>
+    <th>商品名</th>
+    <th>商品价格</th>
+    <th>供应商</th>
+    <th>邮费</th>
+    <th>购买数量</th>
+  </tr>
+  <% commodity_ids=[] %>
+  <% index = 0 %>
+  <% if @commodities == nil %>
+  <% else %>
+    <% commodity_sum = @commodities.size %>
+    <%= form_for :order, :url=>"/orders/update_amount" ,:html => {:onsubmit => "return check(#{commodity_sum});"} do |f| %>
+      <% @commodities.each do |commodity| %>
+        <tr>
+          <td><%= commodity.name %></td>
+          <td><%= commodity.price %></td>
+          <td><%= commodity.supplier.name %></td>
+          <td><%= commodity.supplier.postage %></td>
+          <% commodity_ids<<commodity.id %>
+          <td>
+            <% index += 1 %>  
+            <input type="hidden" id="num<%= index %>" name="num<%= index %>" value="<%= commodity.amount%>"/>
+            <input type="text" id="value<%= index %>" name="value<%= commodity.id %>" value="1"/>
+          </td>
+        <% end %>
+      </tr> <%= f.hidden_field :commodity_id_array,:value=>commodity_ids %>
+      <%= f.submit "购买" %>
+      <%=  flash[:notice]%>
+    <% end %>
+  <% end %>
+</table>
+<br />
+<%= link_to '继续购物', "/commodities" %>
+<%= button_to "清空购物车", :action => :empty_cart %>
