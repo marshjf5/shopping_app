@@ -1,4 +1,5 @@
 class CommoditiesController < ApplicationController
+
   def index
     @commodities = Commodity.all
   end
@@ -33,4 +34,10 @@ class CommoditiesController < ApplicationController
     redirect_to "/commodities"
   end
 
+
+
+  def new
+    @commodity = Commodity.new
+  end
 end
+

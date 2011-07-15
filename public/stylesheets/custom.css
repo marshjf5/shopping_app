@@ -29,18 +29,12 @@ font-size: 200%;
 }
 /* Links */
 a {
-color: #09c;
-text-decoration: none;
+font-variant:inherit;
+
 }
 
-a:hover {
-color: #069;
-text-decoration: underline;
-}
 
-a:visited {
-color: #069;
-}
+
 
 /* Navigation */
 nav {

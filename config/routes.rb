@@ -1,4 +1,5 @@
 ShoppingApp::Application.routes.draw do
+
   get "packages/packages"
 
   get "suppliers/suppliers"

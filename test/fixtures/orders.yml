@@ -2,6 +2,7 @@
 
 one:
   package_id: 1
+<<<<<<< HEAD
   supplier_id: 1
   amount: 1
   order_price: 1.5
@@ -13,3 +14,14 @@ two:
   amount: 1
   order_price: 1.5
   commodity_id: 1
+=======
+  commodity_id: 1
+  amount: 1
+  order_price: 
+
+two:
+  package_id: 1
+  commodity_id: 1
+  amount: 1
+  order_price: 
+>>>>>>> e926f6f780cb40c6595d14766d2c5c4f1eee33f3

@@ -1,12 +1,12 @@
-<h1>包裹</h1>
-<div class>
+<h2>您的包裹</h2>
+
   <% @package_ids.each do |package_id| %>    <% package = Package.find(package_id) %>
-    <ul>包裹名称</ul>
-    <p><%= package.name %></p>
+    <div class="a">包裹名称</div>
+    <%= package.name %>
     <% package.orders.each do |order| %>
-      <span>商品名称</span> <%= order.commodity.name %> <span>数量</span> <%= order.amount %> <span>总价</span> <%= order.order_price %>
+      <ul>商品名称</ul> <%= order.commodity.name %> <span>数量</span> <%= order.amount %> <span>总价</span> <%= order.order_price %>
     <% end %>
   <% end %>
-  <li><%= link_to "支付" %></li>
-</div>
+ 
+
 

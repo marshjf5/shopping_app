@@ -1,5 +1,6 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
+<<<<<<< HEAD
 one:
   name: MyString
   postage: 1.5
@@ -7,3 +8,14 @@ one:
 two:
   name: MyString
   postage: 1.5
+=======
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+#  column: value
+>>>>>>> e926f6f780cb40c6595d14766d2c5c4f1eee33f3
