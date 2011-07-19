@@ -3,7 +3,7 @@ class CreatePackages < ActiveRecord::Migration
     create_table :packages do |t|
       t.string :name
       t.integer :supplier_id
-
+      t.float :package_price
       t.timestamps
     end
   end

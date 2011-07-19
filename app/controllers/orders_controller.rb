@@ -32,15 +32,15 @@ class OrdersController < ApplicationController
       end
       @total =0.0
       if (@sum>5000)
-        @total = @sum
+        package.package_price = @sum
+
       else
         @suppliers.each do |supplier|
           @sum+=supplier.postage
-          @total=@sum
+         package.package_price=@sum
         end
       end
-      puts "=========================="
-      puts @total
+     
     end
    
     render "/suppliers/suppliers"
