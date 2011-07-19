@@ -23,21 +23,26 @@ class OrdersController < ApplicationController
     end
 
     
-    @sum =0.0 #未加邮费
-   @total=0.0 #总和
+   
+   
     @packages.each do |package|
+      @sum =0.0 
       package.orders.each do |order|
-        @sum+=order.order_price.to_i
+        @sum +=order.order_price.to_i
       end
+      @total =0.0
       if (@sum>5000)
+        @total = @sum
+      else
+        @suppliers.each do |supplier|
+          @sum+=supplier.postage
           @total=@sum
-    else
-      @suppliers.each do |supplier|
-        @sum+=supplier.postage
-        @total=@sum
+        end
       end
-      end
+      puts "=========================="
+      puts @total
     end
+   
     render "/suppliers/suppliers"
   end
 end
