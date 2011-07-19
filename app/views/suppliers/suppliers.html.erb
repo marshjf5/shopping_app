@@ -1,5 +1,5 @@
 <h3>您的包裹</h3>
-  <% @package_ids.each do |package_id| %>    <% package = Package.find(package_id) %>
+  <% @packages.each do |package| %>
     <div class="a">包裹名称</div>
     <%= package.name %>
     <% package.orders.each do |order| %>

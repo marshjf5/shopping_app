@@ -17,7 +17,6 @@
       <td><%= commodity.supplier.name %></td>
       <td><%= commodity.supplier.postage %></td> 
       <td><%= link_to '删除商品', "/commodities/#{commodity.id}/dest", :confirm => '确定删除么?' %></td>
-      <td></td><td></td><td></td><td></td><td></td><td></td>
       <td><%= link_to '放入购物车',{:action =>"add_to_cart",:id => commodity} %></td>
     </tr>
   <% end %>
