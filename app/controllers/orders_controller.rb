@@ -30,17 +30,13 @@ class OrdersController < ApplicationController
       package.orders.each do |order|
         @sum +=order.order_price.to_i
       end
-      
       if (@sum>5000)
         package.package_price = @sum
-
       else
-        @suppliers.each do |supplier|
-          @sum+=supplier.postage
+          @sum+=Supplier.find(package.supplier_id).postage
          package.package_price=@sum
         end
-      end
-     
+    
     end
    
     render "/suppliers/suppliers"
