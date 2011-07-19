@@ -30,7 +30,7 @@ class OrdersController < ApplicationController
       package.orders.each do |order|
         @sum +=order.order_price.to_i
       end
-      @total =0.0
+      
       if (@sum>5000)
         package.package_price = @sum
 
