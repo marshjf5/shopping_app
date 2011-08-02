@@ -1,4 +1,5 @@
 ShoppingApp::Application.routes.draw do
+  
 
   get "packages/packages"
 
@@ -7,12 +8,16 @@ ShoppingApp::Application.routes.draw do
   get "orders/orders"
 
   get "commodities/commodities"
+
+  get "sessions/signin"
+
   resources :commodities do
  	  collection do
- 	    get "add_to_cart","cart"
+ 	    get "cart"
       post "empty_cart"
  	  end
     member do
+      get "add_to_cart"
       get "order"
       get "dest"
     end
@@ -21,6 +26,11 @@ ShoppingApp::Application.routes.draw do
   resources :suppliers do
     member do
       get "package"
+      get "supplier_commodities"
+    end
+    collection do
+      get "suppliers_list"
+      
     end
   end
   
@@ -30,7 +40,17 @@ ShoppingApp::Application.routes.draw do
     end
   end
 
+  resource :sessions do
+  
+  end
+  
+  resource :users do
+   
+  end
 
+  
+  #  match '/signup' => 'users#new'
+  #  match '/sign_in' => 'sessions#new'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,15 +1,18 @@
+<table>
 <h3>您的包裹</h3>
   <% @packages.each do |package| %>
-    <div class="a">包裹名称</div>
+<div class="a">包裹名称&nbsp;&nbsp;<%=  package.name %></div>
 
     <tr>包裹总价</tr>
     <%= package.package_price %>
     
     <% package.orders.each do |order| %>
-      <ul>商品名称</ul> <%= order.commodity.name %> <span>数量</span> <%= order.amount %> <span>总价</span> <%= order.order_price %>
+      <ul>商品名称 <%= order.commodity.name %></ul> <span>数量</span> <%= order.amount %> <span>总价</span> <%= order.order_price %><span>用户名</span><%= User.find(order.user_id).name %>
     <% end %>
   <% end %>
- 
+</table>
+ <%= link_to "查看供应商","/suppliers/suppliers_list" %>
+
 
 
 

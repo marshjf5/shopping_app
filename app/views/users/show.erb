@@ -1,0 +1,22 @@
+<p>
+<b>您的电子邮箱</b>
+<%= @user.email %>
+</p>
+<p>
+  <b>您的姓名</b>
+  <%= @user.name %>
+  </p>
+  <p>
+    <%#*<b>我的包裹</b>%>
+    <%#= @user.packages.name %>
+    <%#*</p>%>
+    <%#*<p>%>
+      <%#*<b>已购买的商品</b>%>
+      <%#= @user.commodities.name %>
+    <%#*</p>%>
+  <% if current_user?(@user) %>
+  
+  <%= link_to '继续购物',"/commodities/index" %>
+  <% end %>
+  
+

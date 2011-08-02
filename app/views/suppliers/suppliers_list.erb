@@ -1,0 +1,11 @@
+<h1>供应商列表</h1>
+<table>
+<tr>
+  <th>供应商名称</th>
+</tr>
+<% @suppliers.each do |supplier| %>
+<tr>
+<th><%= supplier.name %><%= link_to "货物状态","/suppliers/#{supplier.id}/supplier_commodities" %></th>
+</tr>
+<% end %>
+</table>

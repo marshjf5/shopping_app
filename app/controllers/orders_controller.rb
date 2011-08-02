@@ -14,16 +14,13 @@ class OrdersController < ApplicationController
         @package = Package.create(:name=>supplier.name, :supplier_id=>supplier.id)
         @packages<<@package
         hash[supplier.id]=@package.id
-       
+       session["#{supplier.id}"]=@packages
       end
       @com.each do |commodity|
         @price = commodity.price * (params["value#{commodity.id}"].to_i) 
-        @order = Order.create(:package_id =>hash[commodity.supplier_id],:commodity_id=>commodity.id,:amount=>params["value#{commodity.id}"],:order_price=>@price)
+        @order = Order.create(:user_id=>session[:id],:package_id =>hash[commodity.supplier_id],:commodity_id=>commodity.id,:amount=>params["value#{commodity.id}"],:order_price=>@price)
       end
     end
-
-    
-   
    
     @packages.each do |package|
       @sum =0.0 
@@ -33,12 +30,12 @@ class OrdersController < ApplicationController
       if (@sum>5000)
         package.package_price = @sum
       else
-          @sum+=Supplier.find(package.supplier_id).postage
+         @sum+=Supplier.find(package.supplier_id).postage
          package.package_price=@sum
         end
-    
     end
    
     render "/suppliers/suppliers"
   end
+  
 end

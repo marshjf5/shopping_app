@@ -1,0 +1,20 @@
+<%= form_for @user do |f| %>
+  <div class="field">
+    <font color="#ff0000">*</font>
+    <%= f.label :name %><br/>
+    <%= f.text_field :name %><span id="user_1"></span>
+  </div>
+  <div class="field">
+    <font color="#ff0000">*</font>
+    <%= f.label :email %><br/>
+    <%= f.text_field :email %><span id="user_2"></span>
+  </div>
+  <div class="field">
+    <font color="#ff0000">*</font>
+    <%= f.label :password %><br/>
+    <%= f.password_field :encrypted_password %><span id="user_3"></span>
+  </div>
+  <div class="actions">
+    <%= f.submit "注册"%>
+  </div>
+<% end %>

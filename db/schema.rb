@@ -10,12 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110624064655) do
+ActiveRecord::Schema.define(:version => 20110720072729) do
 
   create_table "commodities", :force => true do |t|
     t.string   "name"
-    t.float    "price"
     t.integer  "amount"
+    t.float    "price"
     t.integer  "supplier_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(:version => 20110624064655) do
     t.integer  "supplier_id"
     t.integer  "amount"
     t.float    "order_price"
+    t.integer  "commodity_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -33,14 +35,22 @@ ActiveRecord::Schema.define(:version => 20110624064655) do
   create_table "packages", :force => true do |t|
     t.string   "name"
     t.integer  "supplier_id"
+    t.float    "package_price"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.float "package_price"
   end
 
   create_table "suppliers", :force => true do |t|
     t.string   "name"
     t.float    "postage"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "encrypted_password"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -26,18 +26,27 @@ class CommoditiesController < ApplicationController
   end
 
   def add_to_cart
-    @a=Array.new
-    @a=session[:cart] unless session[:cart].nil?
+    session[:cart]=[] if session[:cart]==nil
+    session[:cart]<<params[:id]
+    @a=session[:cart]
     flash[:notice]="成功放入购物车"
-    @a<<params[:id]
-    session[:cart] = @a
     redirect_to "/commodities"
   end
 
 
-
   def new
     @commodity = Commodity.new
+
   end
+
+  def cart
+    if session[:cart] == nil
+      @commodities = nil
+    else
+      @commodities = Commodity.find_by_sql("select * from commodities c where c.id in (#{session[:cart].join(",")})")
+
+    end
+  end
+  
 end
 

@@ -1,0 +1,20 @@
+<h3>用户登录</h3>
+<% form_for(:session, :url => sessions_path) do |f| %>
+<div class="field">
+  <font color="#ff0000">*</font>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+</div>
+<div class="field">
+  <font color="#ff0000">*</font>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+</div>
+<div class="actions">
+         <%= f.submit "登录"%>
+    </div>
+
+<%end%>
+<td><%= link_to '新用户注册',"/users/new" %></td>
+<td><%= link_to '供应商',"/suppliers/suppliers_list" %></td>
+ 
