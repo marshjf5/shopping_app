@@ -11,6 +11,7 @@ ShoppingApp::Application.routes.draw do
 
   get "sessions/signin"
 
+
   resources :commodities do
  	  collection do
  	    get "cart"

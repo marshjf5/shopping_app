@@ -6,18 +6,18 @@
     <th>订购数量</th>
     <th>总价</th>
   </tr>
-  <% if @packages==nil %>
+  <% if @package==nil %>
     <tr>该供应商无货物发送！</tr>
   <%else%>
-    <% @packages.each do |package| %>
-      <% package.orders.each do|order| %>
+    
+      <% @package.orders.each do|order| %>
         <tr>
           <th><%= order.commodity.name %></th>
           <th><%= order.user.name%></th>
           <th><%= order.amount %></th>
           <th><%= order.order_price %></th>
         </tr>
-      <%end%>
+ 
     <%end%>
   <%end%>
 </table>

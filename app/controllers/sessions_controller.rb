@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     else
       session[:email]=@user.email
       session[:id]=@user.id
-      render "/commodities/index"
+      redirect_to "/commodities"
     end
   end
 

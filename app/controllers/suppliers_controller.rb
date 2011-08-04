@@ -13,11 +13,11 @@ class SuppliersController < ApplicationController
   end
 
   def supplier_commodities
-    @packages=session["#{params[:id]}"]
-   if @com.nil?
-     flash[:notice]="没有货物需要发售！"
-   else
-     @packages=session[:package]
-   end
+    @package=Package.find(session["#{params[:id]}"])
+    if @package.nil?
+      flash[:notice]="没有货物需要发售！"
+    else
+      @package=Package.find(session["#{params[:id]}"])
+    end
   end
 end

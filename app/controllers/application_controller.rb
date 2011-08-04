@@ -8,4 +8,5 @@ class ApplicationController < ActionController::Base
     @commodities = Commodity.find_by_sql("select * from commodities c where c.id in (#{session[:cart].join(",")})")
   end
 
+
 end
